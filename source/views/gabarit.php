@@ -12,12 +12,13 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AzuriaPlanning</title>
     <link href="/views/content/css/output.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="./views/content/images/icon.ico" />
 </head>
 
 <body>
     <div class="absolute navbar bg-primary text-primary-content">
         <div class="navbar-start">
-            <a href="/" class="btn btn-ghost normal-case text-2xl">AzuriaPlanning</a>
+           <a href="/" class="btn btn-ghost normal-case text-xl"><img class="h-11" src="./views/content/images/icon_text.png" /></a>
         </div>
         <div class="navbar-center">
             <?php if (isset($_SESSION['userEmailAddress'])) : ?>
@@ -27,8 +28,8 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php endif; ?>
         </div>
         <div class="navbar-end">
-        <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
-                <a href="#" class="btn btn-ghost normal-case text-xl">Planifier voyage</a>
+            <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
+                <a href="/trip" class="btn btn-ghost normal-case text-xl">Planifier voyage</a>
             <?php endif; ?>
             <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
                 <a href="#" class="btn btn-ghost normal-case text-xl">Importer élèves</a>

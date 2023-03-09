@@ -3,6 +3,7 @@ include 'autoload.php';
 
 use \controllers\HomeController;
 use \controllers\AuthentificationController;
+use controllers\TripController;
 
 header_remove();
 
@@ -28,6 +29,9 @@ switch ($uri) {
         break;
     case "/logout":
         AuthentificationController::logout();
+        break;
+    case "/trip":
+        TripController::show();
         break;
     default:
         break;

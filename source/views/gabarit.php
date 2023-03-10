@@ -16,28 +16,67 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 
 <body>
-    <div class="absolute navbar bg-primary text-primary-content">
+    <div class="md:absolute navbar bg-primary text-primary-content">
         <div class="navbar-start">
-           <a href="/" class="btn btn-ghost normal-case text-xl"><img class="h-11" src="./views/content/images/icon_text.png" /></a>
-        </div>
-        <div class="navbar-center">
+            <div class="dropdown lg:hidden md:hidden">
+                <label tabindex="0" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </label>
+                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <li>
+                        <?php if (isset($_SESSION['userEmailAddress'])) : ?>
+                            <div class="text-black tooltip tooltip-right text-left" data-tip=<?= ($_SESSION['teacher'] == '1') ? 'Enseignant' : 'Élève'; ?>>
+                                <?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?>
+                            </div>
+                        <?php endif; ?>
+                    </li>
+                    <li>
+                        <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
+                            <a href="/trip" class="text-black">Planifier voyage</a>
+                        <?php endif; ?>
+                    </li>
+                    <li>
+                        <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
+                            <a href="#" class="text-black">Importer élèves</a>
+                        <?php endif; ?>
+                    </li>
+                    <li>
+                        <?php if (!isset($_SESSION['userEmailAddress'])) : ?>
+                            <a href="/login" class="text-black">Se connecter</a>
+                        <?php else : ?>
+                            <a href="/logout" class="text-black">Se déconnecter</a>
+                        <?php endif; ?>
+                    </li>
+                </ul>
+            </div>
+            <a href="/" class="hidden md:flex btn btn-ghost normal-case text-xl"><img class="hidden md:flex h-11" src="./views/content/images/icon_text.png" /></a>
             <?php if (isset($_SESSION['userEmailAddress'])) : ?>
-                <div class="text-md tooltip tooltip-bottom" data-tip=<?= ($_SESSION['teacher'] == '1') ? 'Enseignant' : 'Élève'; ?>>
+                <div class="hidden lg:hidden md:flex text-md tooltip tooltip-bottom btn btn-ghost normal-case lg:text-xl" data-tip=<?= ($_SESSION['teacher'] == '1') ? 'Enseignant' : 'Élève'; ?>>
                     <?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?>
                 </div>
             <?php endif; ?>
         </div>
+        <div class="navbar-center">
+            <?php if (isset($_SESSION['userEmailAddress'])) : ?>
+                <div class="hidden lg:flex text-md tooltip tooltip-bottom btn btn-ghost normal-case lg:text-xl" data-tip=<?= ($_SESSION['teacher'] == '1') ? 'Enseignant' : 'Élève'; ?>>
+                    <?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?>
+                </div>
+            <?php endif; ?>
+            <a href="/" class="md:hidden btn btn-ghost normal-case text-xl"><img class="md:hidden h-8" src="./views/content/images/icon.png" /></a>
+        </div>
         <div class="navbar-end">
             <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
-                <a href="/trip" class="btn btn-ghost normal-case text-xl">Planifier voyage</a>
+                <a href="/trip" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Planifier voyage</a>
             <?php endif; ?>
             <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
-                <a href="#" class="btn btn-ghost normal-case text-xl">Importer élèves</a>
+                <a href="#" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Importer élèves</a>
             <?php endif; ?>
             <?php if (!isset($_SESSION['userEmailAddress'])) : ?>
-                <a href="/login" class="btn btn-ghost normal-case text-xl">Se connecter</a>
+                <a href="/login" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Se connecter</a>
             <?php else : ?>
-                <a href="/logout" class="btn btn-ghost normal-case text-xl">Se déconnecter</a>
+                <a href="/logout" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Se déconnecter</a>
             <?php endif; ?>
             <label class="btn btn-ghost swap swap-rotate">
 

@@ -7,12 +7,12 @@ ob_start();
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div class="card-body">
                 <h1 class="text-3xl text-center font-bold">Plannifier un voyage</h1>
-                <form action="/authenticate" method="post">
+                <form action="/createNewTrip" method="post">
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Nom de la planification</span>
+                            <span class="label-text">Destination</span>
                         </label>
-                        <input required id="plannificationName" name="plannificationName" type="text" class="input input-bordered" />
+                        <input required id="destination" name="destination" type="text" class="input input-bordered" />
                         <label class="label">
                             <span class="label-text">Date de début</span>
                         </label>
@@ -24,7 +24,7 @@ ob_start();
                         <label class="label">
                             <span class="label-text">Description</span>
                         </label>
-                        <textarea class="textarea textarea-bordered h-24" placeholder="75 caractères max."></textarea>
+                        <textarea required id="description" name="description" class="textarea textarea-bordered h-24" placeholder="75 caractères max."></textarea>
                         <div class="form-control mt-6">
                             <button type="submit" class="btn btn-primary">Plannifier le voyage</button>
                         </div>

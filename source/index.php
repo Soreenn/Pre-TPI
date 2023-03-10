@@ -33,6 +33,9 @@ switch ($uri) {
     case "/trip":
         TripController::show();
         break;
+    case "/createNewTrip":
+        TripController::createNewTrip($_POST);
+        break;
     default:
         break;
 }

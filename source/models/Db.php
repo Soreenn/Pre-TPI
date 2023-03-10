@@ -30,15 +30,28 @@ class Db
 
     public static function QuerySelect($query)
     {
-            $queryResult = null;
+        $queryResult = null;
 
-            $dbConnexion = db::_connection(); //open database connexion
-            if ($dbConnexion != null) {
-                $statement = $dbConnexion->prepare($query); //prepare query
-                $statement->execute(); //execute query
-                $queryResult = $statement->fetchAll(); //prepare result for client
-            }
-            $dbConnexion = null; //close database connexion
-            return $queryResult;
+        $dbConnexion = db::_connection(); //open database connexion
+        if ($dbConnexion != null) {
+            $statement = $dbConnexion->prepare($query); //prepare query
+            $statement->execute(); //execute query
+            $queryResult = $statement->fetchAll(); //prepare result for client
+        }
+        $dbConnexion = null; //close database connexion
+        return $queryResult;
+    }
+
+    public static function QueryIUD($query)
+    {
+        $queryResult = null;
+
+        $dbConnexion = db::_connection(); //open database connexion
+        if ($dbConnexion != null) {
+            $statement = $dbConnexion->prepare($query); //prepare query
+            $queryResult = $statement->execute(); //execute query
+        }
+        $dbConnexion = null; //close database connexion
+        return $queryResult;
     }
 }

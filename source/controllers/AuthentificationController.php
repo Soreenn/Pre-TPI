@@ -48,7 +48,12 @@ class AuthentificationController
 
     public static function show()
     {
-        require "./views/login.php";
+        if (!isset($_SESSION['userEmailAddress'])) {
+            require "./views/login.php";
+        }
+        else{
+            header("Location: /home");
+        }
     }
 
     public static function logout()

@@ -18,9 +18,8 @@ class TripController
         $endDate = $tripData['endDate'];
         $description = $tripData['description'];
         if ($tripData['destination'] != "" && $tripData['startDate'] != "" && $tripData['endDate'] != "" && $tripData['description'] != "") {
-            if (TripsModel::addNewTrip($destination, date("Y-m-d", strtotime($startDate)), date("Y-m-d", strtotime($startDate)), $description)) {
-                header("Location: /home");
-            }
+            TripsModel::addNewTrip($destination, date("Y-m-d", strtotime($startDate)), date("Y-m-d", strtotime($startDate)), $description);
+            header("Location: /home");
         } else {
             $_SESSION['error'] = "Formulaire incomplet.";
             header("Location: /trip");

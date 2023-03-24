@@ -1,10 +1,16 @@
 {
+  "type": "module",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
-    "daisyui": "^2.51.2"
+    "daisyui": "^2.51.2",
+    "moment": "^2.29.4",
+    "requirejs": "^2.3.6"
+  },
+  "scripts": {
+    "php": "php -S 172.20.10.3:8888"
   }
 }

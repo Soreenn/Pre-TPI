@@ -2,6 +2,12 @@
 ob_start();
 ?>
 
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script type="module" src="/views/content/js/countdown.js"></script>
+    
+</head>
+
 <div class="hero min-h-screen">
     <div class="hero-content text-center">
         <div class="max-w-md">
@@ -45,21 +51,8 @@ ob_start();
 </div>
 
 <script>
-/*     var seconds = <?= $seconds ?>;
-    var minutes = <?= $minutes ?>;
-    var hours = <?= $hours ?>;
-    var months = <?= $months ?>; */
-    var unsplittedDate = "<?= $startDate?>";
+    var unsplittedDate = "<?= $startDate ?>";
     const splittedDate = unsplittedDate.split("-");
-    var date = new Date(splittedDate[0], splittedDate[1] -1, splittedDate[2], "08", "00", "00");
-    console.log(date);
-    setInterval(() => {
-        date
-        document.getElementById('seconds').style.setProperty('--value', date.getMinutes());
-        document.getElementById('minutes').style.setProperty('--value', minutes);
-        document.getElementById('hours').style.setProperty('--value', hours);
-        document.getElementById('months').style.setProperty('--value', months);
-    }, 1000)
 </script>
 
 <?php

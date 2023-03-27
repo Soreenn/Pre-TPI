@@ -14,6 +14,11 @@ class UsersModel
         $raw = Db::QuerySelect('SELECT * FROM users WHERE email = ' . $strSeparator . $email . $strSeparator);
         return $raw;
     }
+
+    public static function addUser($lastname, $firstname, $email, $birthdate, $password, $firstconnexion, $teacher){
+        $result = Db::QuerySelect("INSERT INTO users (lastname, firstname, email, birthdate, password, firstconnexion, teacher) VALUES ('$lastname', '$firstname', '$email', '$birthdate', '$password', '$firstconnexion', '$teacher')");
+        return $result;
+    }
 }
 
 ?>

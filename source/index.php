@@ -40,6 +40,9 @@ switch ($uri) {
     case "/addNewStudents":
         StudentController::show();
         break;
+    case "/importNewStudents":
+        StudentController::importNewStudents($_POST);
+        break;
     default:
         break;
 }

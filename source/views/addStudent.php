@@ -18,8 +18,8 @@ ob_start();
                     </div>
                     <?php unset($_SESSION['error']); ?>
                 <?php endif; ?>
-                <form class="form-control py-3" action="/authenticate" method="post" enctype="multipart/form-data">
-                    <input accept=".css" type="file" class="file-input file-input-bordered w-full max-w-xs" />
+                <form class="form-control py-3" action="/importNewStudents" method="post" enctype="multipart/form-data">
+                    <input id="file" name="file" accept=".csv" type="file" class="file-input file-input-bordered w-full max-w-xs" />
                     <label class="label">
                         <span class="label-text-alt">Fichiers CSV</span>
                     </label>

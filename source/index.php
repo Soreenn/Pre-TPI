@@ -4,6 +4,7 @@ include 'autoload.php';
 use \controllers\HomeController;
 use \controllers\AuthentificationController;
 use controllers\TripController;
+use controllers\StudentController;
 
 header_remove();
 
@@ -35,6 +36,9 @@ switch ($uri) {
         break;
     case "/createNewTrip":
         TripController::createNewTrip($_POST);
+        break;
+    case "/addNewStudents":
+        StudentController::show();
         break;
     default:
         break;

@@ -5,7 +5,7 @@ ob_start();
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script type="module" src="/views/content/js/countdown.js"></script>
-    
+
 </head>
 
 <div class="hero min-h-screen">
@@ -45,7 +45,24 @@ ob_start();
                     sec
                 </div>
             </div>
-            <button class="btn btn-primary">Get Started</button>
+            <div class="indicator">
+                <div class="indicator-item indicator-bottom">
+                    <button class="btn btn-primary">Voir les activités</button>
+                </div>
+                <div class="indicator-item indicator-bottom indicator-start">
+                    <button class="btn btn-primary">Voir les élèves</button>
+                </div>
+                <div class="card border content-center text-center">
+                    <div class="card-body">
+                        <h2 class="card-title">Destination :</h2>
+                        <p><?= $raw[0]['destination']?></p>
+                        <h2 class="card-title">Date de départ :</h2>
+                        <p id="startDate"></p>
+                        <h2 class="card-title">Description</h2>
+                        <p><?= $raw[0]['description']?></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

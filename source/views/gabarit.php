@@ -71,7 +71,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <a href="/trip" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Planifier voyage</a>
             <?php endif; ?>
             <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
-                <a href="#" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Importer élèves</a>
+                <a href="/addNewStudents" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Importer élèves</a>
             <?php endif; ?>
             <?php if (!isset($_SESSION['userEmailAddress'])) : ?>
                 <a href="/login" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Se connecter</a>

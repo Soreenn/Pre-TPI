@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var date = new Date(splittedDate[0], splittedDate[1] - 1, splittedDate[2], "08", "00", "00");
     var date1 = moment(splittedDate[0] + '-' + splittedDate[1] + '-' + splittedDate[2] + ' ' + '08:00:00').format("YYYY-MM-DD hh:mm:ss");
     var date2 = moment().format("YYYY-MM-DD hh:mm:ss");
+    document.getElementById('startDate').innerHTML = moment(date1).format("DD-MM-YYYY");
     /* 
         var diffTime = date1 - date2;
         var duration = moment.duration(diffTime * 1000, 'milliseconds');
@@ -47,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('hours').style.setProperty('--value', hours);
         document.getElementById('days').style.setProperty('--value', days);
         document.getElementById('months').style.setProperty('--value', months);
-        document.getElementById('startDate').innerHTML = moment(date1).format("DD-MM-YYYY");
         
 
         // If the count down is finished, write some text

@@ -5,7 +5,8 @@ namespace models;
 class TripsModel
 {
     public static function getCurrentTrip(){
-        $raw = Db::QuerySelect('SELECT * FROM trips ORDER BY startdate DESC');
+        $raw = Db::QuerySelect('SELECT * FROM trips ORDER BY startdate DESC
+        ');
         return $raw;
     }
 

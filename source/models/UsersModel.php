@@ -9,6 +9,12 @@ class UsersModel
         return $raw;
     }
 
+    public static function getAllStudents(){
+        $strSeparator = '\'';
+        $raw = Db::QuerySelect('SELECT * FROM users WHERE teacher = false');
+        return $raw;
+    }
+
     public static function getSpecificUserByEmail($email){
         $strSeparator = '\'';
         $raw = Db::QuerySelect('SELECT * FROM users WHERE email = ' . $strSeparator . $email . $strSeparator);

@@ -1,10 +1,11 @@
 <?php
 include 'autoload.php';
 
-use \controllers\HomeController;
-use \controllers\AuthentificationController;
-use controllers\TripController;
+use controllers\HomeController;
+use controllers\AuthentificationController;
 use controllers\StudentController;
+use controllers\TripController;
+use controllers\UserController;
 
 header_remove();
 
@@ -38,10 +39,13 @@ switch ($uri) {
         TripController::createNewTrip($_POST);
         break;
     case "/addNewStudents":
-        StudentController::show();
+        UserController::show();
         break;
     case "/importNewStudents":
-        StudentController::importNewStudents($_POST);
+        UserController::importNewStudents($_POST);
+        break;
+    case "/studentList":
+        StudentController::show();
         break;
     default:
         break;

@@ -50,7 +50,7 @@ ob_start();
                     <button class="btn btn-primary">Voir les activités</button>
                 </div>
                 <div class="indicator-item indicator-bottom indicator-start">
-                    <button class="btn btn-primary">Voir les élèves</button>
+                    <a href="/studentList"><button class="btn btn-primary">Voir les élèves</button></a>
                 </div>
                 <div class="card border content-center text-center">
                     <div class="card-body">

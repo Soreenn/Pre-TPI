@@ -18,13 +18,24 @@ ob_start();
                     </div>
                     <?php unset($_SESSION['error']); ?>
                 <?php endif; ?>
+                <?php if (isset($_SESSION['success'])) : ?>
+                    <div class="alert alert-success shadow-lg">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span><?= $_SESSION['success']?></span>
+                        </div>
+                    </div>
+                    <?php unset($_SESSION['success']); ?>
+                <?php endif; ?>
                 <form class="form-control py-3" action="/importNewStudents" method="post" enctype="multipart/form-data">
                     <input id="file" name="file" accept=".csv" type="file" class="file-input file-input-bordered w-full max-w-xs" />
                     <label class="label">
                         <span class="label-text-alt">Fichiers CSV</span>
                     </label>
                     <div class="form-control mt-6">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary">Importer</button>
                     </div>
                 </form>
             </div>

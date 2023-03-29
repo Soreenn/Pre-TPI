@@ -3405,12 +3405,6 @@ html {
   line-height: 1.5rem;
 }
 
-.table-compact :where(th, td) {
-  padding: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }

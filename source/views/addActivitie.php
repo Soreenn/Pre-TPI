@@ -6,7 +6,7 @@ ob_start();
     <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div class="card-body">
-                <h1 class="text-3xl text-center font-bold">Importer des élèves</h1>
+                <h1 class="text-3xl text-center font-bold">Ajouter une activité</h1>
                 <?php if (isset($_SESSION['error'])) : ?>
                     <div class="alert alert-error shadow-lg">
                         <div>
@@ -29,29 +29,25 @@ ob_start();
                     </div>
                     <?php unset($_SESSION['success']); ?>
                 <?php endif; ?>
-                <form class="form-control py-3" action="/importNewStudents" method="post" enctype="multipart/form-data">
-                    <input id="file" name="file" accept=".csv" type="file" class="file-input file-input-bordered w-full max-w-xs" />
-                    <label class="label">
-                        <span class="label-text-alt">Fichiers CSV</span>
-                    </label>
-                    <div class="form-control mt-6">
-                        <button type="submit" class="btn btn-primary">Importer</button>
+                <form action="/createNewActivitie" method="post">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Addresse de l'activité</span>
+                        </label>
+                        <input required id="address" name="address" type="text" class="input input-bordered" />
+                        <label class="label">
+                            <span class="label-text">Nom de l'activité</span>
+                        </label>
+                        <input required id="name" name="name" type="text" class="input input-bordered" />
+                        <label class="label">
+                            <span class="label-text">Date</span>
+                        </label>
+                        <input required id="date" name="date" type="date" class="input input-bordered" />
+                        <div class="form-control mt-6">
+                            <button type="submit" class="btn btn-primary">Ajouter l'activité</button>
+                        </div>
                     </div>
                 </form>
-                <div class="alert shadow-lg mt-6">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-bold">Comment faire le CSV ?</h3>
-                                <div class="text-xs">Téléchargez le template !</div>
-                            </div>
-                        </div>
-                        <div class="flex-none">
-                        <a href="views/content/template.csv"><button class="btn btn-sm">Télécharger</button></a>
-                        </div>
-                    </div>
             </div>
         </div>
     </div>

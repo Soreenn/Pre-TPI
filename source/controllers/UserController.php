@@ -33,12 +33,15 @@ class UserController
             }
 
             for ($i = 0; $i < $loop; $i++) {
-                UsersModel::addUser($array[$i][0], $array[$i][1], $array[$i][2], $array[$i][3], password_hash($array[$i][4], PASSWORD_DEFAULT), $array[$i][5], $array[$i][6]);
+                if(UsersModel::addUser($array[$i][0], $array[$i][1], $array[$i][2], $array[$i][3], password_hash($array[$i][4], PASSWORD_DEFAULT), $array[$i][5], $array[$i][6])){
+                    $_SESSION['success'] = "Opération effectuée avec succès";
+                }
+                else{
+                    $_SESSION['error'] = "L'opération s'est arrêté (Vérifiez le fichier csv)";
+                }
             }
 
             fclose($open);
-
-            $_SESSION['success'] = "Opération effectuée avec succès";
             header("Location: /addNewStudents");
         }
     }

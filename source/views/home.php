@@ -46,20 +46,29 @@ ob_start();
                 </div>
             </div>
             <div class="indicator">
-                <div class="indicator-item indicator-bottom">
-                    <button class="btn btn-primary">Voir les activités</button>
-                </div>
-                <div class="indicator-item indicator-bottom indicator-start">
-                    <a href="/studentList"><button class="btn btn-primary">Voir les élèves</button></a>
-                </div>
+                <?php if (count($raw) >= 1) : ?>
+                    <div class="indicator-item indicator-bottom">
+                        <a href="/activitiesList"><button class="btn btn-primary">Voir les activités</button></a>
+                    </div>
+                    <div class="indicator-item indicator-bottom indicator-start">
+                        <a href="/studentList"><button class="btn btn-primary">Voir les élèves</button></a>
+                    </div>
+                <?php endif; ?>
+
                 <div class="card border content-center text-center">
                     <div class="card-body">
-                        <h2 class="card-title">Destination :</h2>
-                        <p><?= $raw[0]['destination']?></p>
-                        <h2 class="card-title">Date de départ :</h2>
-                        <p id="startDate"></p>
-                        <h2 class="card-title">Description</h2>
-                        <p><?= $raw[0]['description']?></p>
+                        <?php if (count($raw) >= 1) : ?>
+                            <h2 class="card-title">Destination :</h2>
+                            <p><?= $raw[0]['destination'] ?></p>
+                            <h2 class="card-title">Date de départ :</h2>
+                            <p id="startDate"></p>
+                            <h2 class="card-title">Description</h2>
+                            <p><?= $raw[0]['description'] ?></p>
+                        <?php else : ?>
+                            <tr>
+                                <h2 class="card-title">Pas de voyage planifié pour le moment !</h2>
+                            </tr>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 include 'autoload.php';
 
+use controllers\ActivitiesController;
 use controllers\HomeController;
 use controllers\AuthentificationController;
 use controllers\StudentController;
@@ -46,6 +47,15 @@ switch ($uri) {
         break;
     case "/studentList":
         StudentController::show();
+        break;
+    case "/addActivitie":
+        ActivitiesController::show();
+        break;
+    case "/createNewActivitie":
+        ActivitiesController::createNewActivitie($_POST);
+        break;
+    case "/activitiesList":
+        ActivitiesController::showList();
         break;
     default:
         break;

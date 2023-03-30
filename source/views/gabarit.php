@@ -73,6 +73,9 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
                 <a href="/addNewStudents" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Importer élèves</a>
             <?php endif; ?>
+            <?php if (isset($_SESSION['userEmailAddress']) && $_SESSION['teacher'] == '1') : ?>
+                <a href="/addActivitie" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Ajouter activité</a>
+            <?php endif; ?>
             <?php if (!isset($_SESSION['userEmailAddress'])) : ?>
                 <a href="/login" class="hidden md:flex btn btn-ghost normal-case lg:text-xl md:text-sm">Se connecter</a>
             <?php else : ?>

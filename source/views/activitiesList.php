@@ -12,20 +12,22 @@ ob_start();
                         <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Prénom</th>
+                                <th>Address</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if (count($raw) >= 1) : ?>
-                                <?php foreach ($raw as $student) : ?>
+                                <?php foreach ($raw as $activitie) : ?>
                                     <tr>
-                                        <td><?= $student['lastname'] ?></td>
-                                        <td><?= $student['firstname'] ?></td>
+                                        <td><?= $activitie['name'] ?></td>
+                                        <td><?= $activitie['address'] ?></td>
+                                        <td><?= $activitie['date'] ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php else : ?>
                                 <tr>
-                                    <td>Pas d'élèves !</td>
+                                    <td>Pas d'activités</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
